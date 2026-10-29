@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { Navbar } from '@/components/navbar'
 import { Card } from '@/components/ui/card'
@@ -22,7 +22,7 @@ const INTRO_MESSAGE: ChatMessage = {
     "Salom! Men Startup Idea Validator AI chatman. Biznes g'oyangizni yozing: men uni tahlil qilib, bozor, risk, kapital va marketing bo'yicha tushunarli tavsiyalar beraman.",
 }
 
-export default function ValidatorPage() {
+function ValidatorContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [messages, setMessages] = useState<ChatMessage[]>([INTRO_MESSAGE])
@@ -254,3 +254,11 @@ export default function ValidatorPage() {
   )
 }
 
+
+export default function ValidatorPage() {
+  return (
+    <Suspense>
+      <ValidatorContent />
+    </Suspense>
+  )
+}
