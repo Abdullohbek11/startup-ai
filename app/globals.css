@@ -1,0 +1,533 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Animocks-style palette: violet, cyan — kunduzgi ham shu rangda */
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --background: oklch(0.97 0.025 290);
+  --foreground: oklch(0.18 0.035 285);
+  --card: oklch(1 0.015 290);
+  --card-foreground: oklch(0.2 0.03 285);
+  --popover: oklch(1 0.015 290);
+  --popover-foreground: oklch(0.2 0.03 285);
+  --primary: oklch(0.55 0.28 285);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.03 290);
+  --secondary-foreground: oklch(0.25 0.04 285);
+  --muted: oklch(0.94 0.02 290);
+  --muted-foreground: oklch(0.38 0.04 285);
+  --accent: oklch(0.72 0.18 195);
+  --accent-foreground: oklch(0.15 0.02 195);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0.03 290);
+  --input: oklch(0.9 0.03 290);
+  --ring: oklch(0.55 0.28 285);
+  --chart-1: oklch(0.55 0.28 285);
+  --chart-2: oklch(0.72 0.18 195);
+  --chart-3: oklch(0.7 0.2 45);
+  --chart-4: oklch(0.65 0.2 320);
+  --chart-5: oklch(0.6 0.18 160);
+  --radius: 0.875rem;
+  --bg-1: oklch(0.97 0.025 290);
+  --bg-2: oklch(0.96 0.03 285);
+  --bg-3: oklch(0.95 0.035 280);
+  --success: oklch(0.65 0.2 145);
+  --success-foreground: oklch(0.99 0 0);
+  --warning: oklch(0.78 0.18 75);
+  --warning-foreground: oklch(0.2 0.02 75);
+  --sidebar: oklch(0.99 0.01 285);
+  --sidebar-foreground: oklch(0.2 0.03 285);
+  --sidebar-primary: oklch(0.55 0.28 285);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.94 0.03 285);
+  --sidebar-accent-foreground: oklch(0.25 0.04 285);
+  --sidebar-border: oklch(0.92 0.02 285);
+  --sidebar-ring: oklch(0.55 0.28 285);
+}
+
+.dark {
+  --background: oklch(0.12 0.04 285);
+  --foreground: oklch(0.98 0.01 285);
+  --card: oklch(0.16 0.04 285);
+  --card-foreground: oklch(0.95 0.02 285);
+  --popover: oklch(0.16 0.04 285);
+  --popover-foreground: oklch(0.95 0.02 285);
+  --primary: oklch(0.7 0.25 285);
+  --primary-foreground: oklch(0.12 0.04 285);
+  --secondary: oklch(0.22 0.04 285);
+  --secondary-foreground: oklch(0.95 0.02 285);
+  --muted: oklch(0.22 0.04 285);
+  --muted-foreground: oklch(0.72 0.03 285);
+  --accent: oklch(0.7 0.2 195);
+  --accent-foreground: oklch(0.12 0.04 285);
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.28 0.04 285);
+  --input: oklch(0.22 0.04 285);
+  --ring: oklch(0.7 0.25 285);
+  --chart-1: oklch(0.7 0.25 285);
+  --chart-2: oklch(0.72 0.2 195);
+  --chart-3: oklch(0.75 0.18 45);
+  --chart-4: oklch(0.68 0.22 320);
+  --chart-5: oklch(0.68 0.2 160);
+  --bg-1: oklch(0.12 0.04 285);
+  --bg-2: oklch(0.15 0.045 280);
+  --bg-3: oklch(0.18 0.05 275);
+  --sidebar: oklch(0.16 0.04 285);
+  --sidebar-foreground: oklch(0.95 0.02 285);
+  --sidebar-primary: oklch(0.7 0.25 285);
+  --sidebar-primary-foreground: oklch(0.12 0.04 285);
+  --sidebar-accent: oklch(0.22 0.04 285);
+  --sidebar-accent-foreground: oklch(0.95 0.02 285);
+  --sidebar-border: oklch(0.28 0.04 285);
+  --sidebar-ring: oklch(0.7 0.25 285);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* 4D dizayn: chuqurlik, soyalar, animatsiyalar */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.shadow-4d {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+}
+.dark .shadow-4d {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.22);
+}
+.shadow-4d-lg {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.08);
+}
+.dark .shadow-4d-lg {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    0 32px 64px rgba(0, 0, 0, 0.25);
+}
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 16px 32px rgba(0, 0, 0, 0.08);
+}
+.dark .hover-lift:hover {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.4s ease-out forwards; }
+.animate-scale-in { animation: scale-in 0.3s ease-out forwards; }
+
+/* 3D va qora fon bo'limi */
+@keyframes float-3d {
+  0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+  33% { transform: translateY(-6px) rotateX(2deg) rotateY(2deg); }
+  66% { transform: translateY(-3px) rotateX(-1deg) rotateY(-2deg); }
+}
+@keyframes glow-line {
+  0%, 100% { opacity: 0.4; transform: scaleX(0.8); }
+  50% { opacity: 0.9; transform: scaleX(1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes card-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+.perspective-1000 { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.card-3d {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.card-3d:hover {
+  transform: rotateY(-6deg) rotateX(4deg) translateY(-8px) scale(1.02);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 60px rgba(120, 119, 198, 0.15);
+}
+.animate-float-3d { animation: float-3d 6s ease-in-out infinite; }
+.animate-glow-line { animation: glow-line 3s ease-in-out infinite; }
+.animate-card-float { animation: card-float 4s ease-in-out infinite; }
+
+/* Kartochka kirish — 3D + stagger */
+@keyframes card-enter-3d {
+  from {
+    opacity: 0;
+    transform: translateY(24px) rotateX(-8deg) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+/* Yengil doimiy float */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+/* Gradient siljish — fon */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+/* Border yorqinlik */
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
+  50% { box-shadow: 0 0 0 1px rgba(255,255,255,0.18), 0 0 24px rgba(120,119,198,0.2); }
+}
+/* Ikona/teg pulsatsiya */
+@keyframes icon-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.9; }
+}
+/* Grid fon — sekin harakat */
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
+}
+
+.animate-card-enter-3d {
+  animation: card-enter-3d 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-float-subtle { animation: float-subtle 5s ease-in-out infinite; }
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease infinite;
+}
+.animate-border-glow { animation: border-glow 3s ease-in-out infinite; }
+.animate-icon-pulse { animation: icon-pulse 2s ease-in-out infinite; }
+.animate-grid-move { animation: grid-move 20s linear infinite; }
+
+/* 3 fon klasslari — bitta dizayn tizimi */
+.bg-fon-1 { background-color: var(--bg-1); }
+.bg-fon-2 { background-color: var(--bg-2); }
+.bg-fon-3 { background-color: var(--bg-3); }
+.bg-fon-pattern {
+  background-image: radial-gradient(circle at 20% 30%, oklch(0.52 0.2 260 / 0.06), transparent 42%),
+    radial-gradient(circle at 85% 65%, oklch(0.72 0.14 195 / 0.05), transparent 38%);
+}
+.dark .bg-fon-pattern {
+  background-image: radial-gradient(circle at 20% 30%, oklch(0.55 0.2 255 / 0.09), transparent 45%),
+    radial-gradient(circle at 85% 65%, oklch(0.6 0.15 180 / 0.07), transparent 42%);
+}
+
+/* Orqa fon — tiniq: tekis rang, yengil mesh. Cursor atrofida yorug'lik kattaroq. */
+.bg-4d {
+  background-color: var(--bg-1);
+  background-image:
+    radial-gradient(circle 24vmin at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.12) 0%, transparent 22%),
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-position: var(--mouse-x) var(--mouse-y), 0 0, 0 0;
+  background-repeat: no-repeat, repeat, repeat;
+}
+.dark .bg-4d {
+  background-image:
+    radial-gradient(circle 24vmin at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1) 0%, transparent 20%),
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+.bg-4d-mesh {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+.dark .bg-4d-mesh {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+
+/* Qo'shimcha animatsiyalar */
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scale-up {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer-text {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+.animate-slide-in-right { animation: slide-in-right 0.45s ease-out forwards; }
+.animate-fade-in { animation: fade-in 0.4s ease-out forwards; }
+.animate-scale-up { animation: scale-up 0.35s ease-out forwards; }
+
+/* 3D va qo'shimcha animatsiyalar — ko'paytirilgan */
+@keyframes tilt-3d-in {
+  from { opacity: 0; transform: perspective(800px) rotateX(-12deg) translateY(20px); }
+  to { opacity: 1; transform: perspective(800px) rotateX(0) translateY(0); }
+}
+@keyframes dust-wiggle {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(1.5px, -1px); }
+  50% { transform: translate(-1px, 1.5px); }
+  75% { transform: translate(1px, 1px); }
+}
+.animate-dust-wiggle {
+  animation: dust-wiggle 4s ease-in-out infinite;
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes rotate-y-in {
+  from { opacity: 0; transform: rotateY(-15deg); }
+  to { opacity: 1; transform: rotateY(0); }
+}
+@keyframes glow-soft {
+  0%, 100% { box-shadow: 0 0 20px rgba(120, 119, 198, 0.15); }
+  50% { box-shadow: 0 0 32px rgba(120, 119, 198, 0.25); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-10px) translateZ(4px); }
+}
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+@keyframes border-shine {
+  0%, 100% { border-color: rgba(255,255,255,0.1); }
+  50% { border-color: rgba(255,255,255,0.25); }
+}
+
+.perspective-800 { perspective: 800px; }
+.transform-3d { transform-style: preserve-3d; }
+.hover-tilt-3d {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.hover-tilt-3d:hover {
+  transform: perspective(800px) rotateY(-4deg) rotateX(2deg) translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.05);
+}
+.dark .hover-tilt-3d:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.animate-tilt-3d-in { animation: tilt-3d-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-bounce-soft { animation: bounce-soft 3s ease-in-out infinite; }
+.animate-slide-in-left { animation: slide-in-left 0.5s ease-out forwards; }
+.animate-rotate-y-in { animation: rotate-y-in 0.5s ease-out forwards; }
+.animate-glow-soft { animation: glow-soft 4s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 5s ease-in-out infinite; }
+.animate-pulse-scale { animation: pulse-scale 2.5s ease-in-out infinite; }
+.animate-border-shine { animation: border-shine 3s ease-in-out infinite; }
+
+/* Ko‘proq animatsiyalar — sayt jonli, foydalanuvchi qolsin */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1) translate(0, 0); }
+  33% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: scale(1.05) translate(2%, -2%); }
+  66% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; transform: scale(0.98) translate(-1%, 1%); }
+}
+@keyframes gradient-text {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.6; filter: blur(40px); }
+  50% { opacity: 0.9; filter: blur(50px); }
+}
+@keyframes scale-in-spring {
+  0% { opacity: 0; transform: scale(0.9); }
+  70% { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-up-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes line-expand {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes scroll-hint {
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(6px); }
+}
+@keyframes ring-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.55 0.28 285 / 0.4); }
+  50% { box-shadow: 0 0 0 12px oklch(0.55 0.28 285 / 0); }
+}
+@keyframes gradient-border {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes icon-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes card-hover-glow {
+  0%, 100% { box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px rgba(124, 58, 237, 0.08); }
+  50% { box-shadow: 0 12px 40px rgba(124, 58, 237, 0.12), 0 0 0 1px rgba(124, 58, 237, 0.15); }
+}
+.dark .card-hover-glow { box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
+.dark .card-hover-glow:hover { box-shadow: 0 12px 40px rgba(124, 58, 237, 0.25), 0 0 0 1px rgba(124, 58, 237, 0.2); }
+
+.animate-wiggle { animation: wiggle 0.5s ease-in-out; }
+.animate-blob { animation: blob 8s ease-in-out infinite; }
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradient-text 4s ease infinite;
+}
+.animate-float-up-down { animation: float-up-down 4s ease-in-out infinite; }
+.animate-glow-breathe { animation: glow-breathe 5s ease-in-out infinite; }
+.animate-scale-in-spring { animation: scale-in-spring 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-slide-up-in { animation: slide-up-in 0.5s ease-out forwards; }
+.animate-fade-in-scale { animation: fade-in-scale 0.4s ease-out forwards; }
+.animate-line-expand { animation: line-expand 0.5s ease-out forwards; transform-origin: left; }
+.animate-scroll-hint { animation: scroll-hint 2s ease-in-out infinite; }
+.animate-ring-pulse { animation: ring-pulse 2s ease-in-out infinite; }
+.animate-icon-bounce { animation: icon-bounce 2s ease-in-out infinite; }
+
+.hover-lift-scale {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hover-lift-scale:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 30px oklch(0.55 0.28 285 / 0.25), 0 0 60px oklch(0.72 0.18 195 / 0.1);
+}
+.text-gradient-primary {
+  background: linear-gradient(135deg, oklch(0.55 0.28 285), oklch(0.72 0.18 195));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+}
+.dark .text-gradient-primary {
+  background: linear-gradient(135deg, oklch(0.75 0.25 285), oklch(0.72 0.2 195));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  /* Focus aniq ko‘rinsin */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
